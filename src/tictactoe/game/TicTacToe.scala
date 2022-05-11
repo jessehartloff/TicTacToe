@@ -80,7 +80,9 @@ class TicTacToe {
       gameBoard = Array("", "", "", "", "", "", "", "", "")
       this.whosTurn = "X"
     }
-    this.checkForTies()
+    if(!this.whosTurn.contains("win")) {
+      this.checkForTies()
+    }
   }
 
 }
