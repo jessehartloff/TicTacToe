@@ -20,7 +20,7 @@ object GUI extends JFXApp {
 
   val messages: TextField = new TextField {
     this.style = "-fx-font: 20 ariel;"
-    this.text = "Welcome to TicTacToe!"
+    this.text = "Welcome to TicTacToe! change"
   }
 
   this.stage = new PrimaryStage {
