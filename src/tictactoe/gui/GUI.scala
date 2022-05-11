@@ -20,7 +20,7 @@ object GUI extends JFXApp {
 
   val messages: TextField = new TextField {
     this.style = "-fx-font: 20 ariel;"
-    this.text = "Welcome to TicTacToe!"
+    this.text = "Take your turn X"
   }
 
   this.stage = new PrimaryStage {
@@ -46,7 +46,12 @@ object GUI extends JFXApp {
       )
     }
 
-    addEventFilter(MouseEvent.MOUSE_CLICKED, (_:MouseEvent) => messages.text = game.messageToDisplay())
+    addEventFilter(MouseEvent.MOUSE_CLICKED, (_:MouseEvent) => {
+      messages.text = game.messageToDisplay()
+      for(i <- game.getGameBoard.indices){
+        buttons(i).text = game.getGameBoard(i)
+      }
+    })
 
   }
 
