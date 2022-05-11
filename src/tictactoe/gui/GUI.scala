@@ -5,6 +5,7 @@ import scalafx.application.JFXApp.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.scene.control.TextField
 import javafx.scene.input.MouseEvent
+import scalafx.animation.AnimationTimer
 import scalafx.scene.layout.GridPane
 import tictactoe.game.TicTacToe
 
@@ -46,13 +47,12 @@ object GUI extends JFXApp {
       )
     }
 
-    addEventFilter(MouseEvent.MOUSE_CLICKED, (_:MouseEvent) => {
+    AnimationTimer(_ => {
       messages.text = game.messageToDisplay()
       for(i <- game.getGameBoard.indices){
         buttons(i).text = game.getGameBoard(i)
       }
-    })
-
+    }).start()
 
 
   }
